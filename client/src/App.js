@@ -5,10 +5,8 @@ import Users from './components/Users/Users';
 function App(props) {
   return (
     <div className='wrapper'>
-      <div > 
-        <Users users={props.store.users}/>
-        <Footer />
-      </div>
+      <Users users={props.store.users}/>
+      <Footer />
     </div>
   );
 }

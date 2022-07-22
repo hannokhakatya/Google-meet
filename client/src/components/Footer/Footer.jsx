@@ -1,17 +1,17 @@
 import moment from 'moment';
 import s from './Footer.module.css';
-// import Icons from './Icons/Icons';
+import MiddleIcons from './MiddleIcons/MiddleIcons';
+
 
 const Footer = (props) => {
   return (
     <div className={s.footer}>
       <div className={s.left_section}>
-        <div>{moment().format('LT')}</div>
+        <div>{ moment().format('LT')}</div>
         <div>Kate</div>
       </div>
       <div className={s.central_section}>
-        Icons and menu
-        {/* <Icons /> */}
+      <MiddleIcons />
       </div>
       <div className={s.right_section}>Right icons</div>
     </div>
