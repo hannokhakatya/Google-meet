@@ -5,6 +5,8 @@ import PresentToAllIcon from "@mui/icons-material/PresentToAll";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import CallEndIcon from "@mui/icons-material/CallEnd";
 import PanToolIcon from '@mui/icons-material/PanTool';
+import ClosedCaptionOffIcon from '@mui/icons-material/ClosedCaptionOff';
+
 
 
 const MiddleIcons = () => {
@@ -13,6 +15,7 @@ const MiddleIcons = () => {
       	<MicIcon />
       	<VideocamIcon />
       	<PresentToAllIcon />
+        <ClosedCaptionOffIcon />
         <PanToolIcon />
         <MoreVertIcon />
         <CallEndIcon />

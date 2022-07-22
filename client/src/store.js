@@ -13,18 +13,18 @@ import Viola from '../src/photos/Viola.jpeg';
 
 let store = {
         users: [
-            {id:1, name:'Kate' , userPhoto: Kate},
-            {id:2, name:'Anton' , userPhoto: Anton},
-            {id:3, name:'Bob' , userPhoto: Bob},
-            {id:4, name:'Dasha' , userPhoto: Dasha},
-            {id:5, name:'David' , userPhoto: David},
-            {id:6, name:'Kleo' , userPhoto: Kleo},
-            {id:7, name:'Lena' , userPhoto: Lena},
-            {id:8, name:'Lili' , userPhoto: Lili},
-            {id:9, name:'Nastya' , userPhoto: Nastya},
-            {id:10, name:'Nick' , userPhoto: Nick},
-            {id:11, name:'Oleh' , userPhoto: Oleh},
-            {id:12, name:'Viola' , userPhoto: Viola},
+            {id:1, name:'Kate' , userPhoto: Kate, isCameraOn:true},
+            {id:2, name:'Anton' , userPhoto: Anton,isCameraOn:true},
+            {id:3, name:'Bob' , userPhoto: Bob,isCameraOn:true},
+            {id:4, name:'Dasha' , userPhoto: Dasha,isCameraOn:true},
+            {id:5, name:'David' , userPhoto: David,isCameraOn:false},
+            {id:6, name:'Kleo' , userPhoto: Kleo,isCameraOn:true},
+            {id:7, name:'Lena' , userPhoto: Lena,isCameraOn:true},
+            {id:8, name:'Lili' , userPhoto: Lili,isCameraOn:false},
+            {id:9, name:'Nastya' , userPhoto: Nastya,isCameraOn:true},
+            {id:10, name:'Nick' , userPhoto: Nick,isCameraOn:true},
+            {id:11, name:'Oleh' , userPhoto: Oleh,isCameraOn:true},
+            {id:12, name:'Viola' , userPhoto: Viola,isCameraOn:false},
         
         ]
 };

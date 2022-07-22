@@ -3,12 +3,12 @@ import s from './User.module.css';
 
 const User = (props) => {
 
-    const[currentUserPhoto,setCurrentUserPhoto]= useState(props.userPhoto)
+    const[currentUserPhoto,setCurrentUserPhoto]= useState(props.userPhoto);
 
   return (
-    <div className={s.user}>
+    <div className={s[props.userClassName] }>
       <div className={s.name}>{props.name}</div>
-      <img src={currentUserPhoto} alt="userPhoto" />
+        {props.isCameraOn ? <img src={currentUserPhoto} alt="userPhoto" /> : <div className={s.roundBlock}><img src={currentUserPhoto} alt="userPhoto" /></div>}
     </div>
   );
 };

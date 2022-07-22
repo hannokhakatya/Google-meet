@@ -1,5 +1,17 @@
 .icons {
     display: flex;
     justify-content: space-between;
-    width:300px;
+    width:350px;
+}
+
+.icons > *:nth-last-child(1) {
+    background-color: red;
+    border: 1px solid red;
+}
+
+.icons > * {
+    border: 1px solid grey;
+    border-radius: 45%;
+    background-color: grey;
+    padding: 8px;
 }
