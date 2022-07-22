@@ -1,9 +1,14 @@
 import './App.css';
+import Footer from './components/Footer/Footer';
+import Users from './components/Users/Users';
 
-function App() {
+function App(props) {
   return (
-    <div className="App">
-      Hi
+    <div className='wrapper'>
+      <div > 
+        <Users users={props.store.users}/>
+        <Footer />
+      </div>
     </div>
   );
 }
