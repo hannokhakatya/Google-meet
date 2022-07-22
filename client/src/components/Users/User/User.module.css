@@ -1,0 +1,21 @@
+.user {
+    height: 200px;
+    max-width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-end;
+    background-color: grey;
+    border-radius: 10px;
+}
+.user img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.name {
+    position: absolute;
+    color: white;
+    padding: 5px;
+}
