@@ -1,0 +1,14 @@
+.footer {
+    background-color: rgb(35, 34, 34);
+    display: flex;
+    justify-content: space-between;
+    min-height: 100px;
+    padding: 20px;
+    color: white;
+}
+
+.left_section {
+    display: flex;
+    justify-content: space-between;
+    width: 120px;
+}
