@@ -1,4 +1,5 @@
 import moment from 'moment';
+import SideIcons from './AsideIcons/SideIcons';
 import s from './Footer.module.css';
 import MiddleIcons from './MiddleIcons/MiddleIcons';
 
@@ -13,7 +14,7 @@ const Footer = (props) => {
       <div className={s.central_section}>
       <MiddleIcons />
       </div>
-      <div className={s.right_section}>Right icons</div>
+      <div className={s.right_section}><SideIcons /></div>
     </div>
   );
 };
