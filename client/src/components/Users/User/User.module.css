@@ -7,6 +7,7 @@
     justify-content:flex-end;
     background-color: rgb(43, 42, 42);
     border-radius: 10px;
+    box-sizing: border-box;
 }
 .cameraOn img {
     height: 100%;
@@ -30,6 +31,7 @@
     background-color: rgb(78, 78, 78);
     border-radius: 10px;
     position: relative;
+    box-sizing: border-box;
 }
 
 .cameraOff .name {
@@ -49,4 +51,14 @@
     display: flex;
     border-radius: 50%;
     overflow: hidden;
+}
+
+.cameraOn:hover {
+    border: 4px rgb(35, 133, 246) solid;
+    border-radius:15px ;
+}
+
+.cameraOff:hover {
+    border: 4px rgb(35, 133, 246) solid;
+    border-radius:15px ;
 }

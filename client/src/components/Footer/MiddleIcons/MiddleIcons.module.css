@@ -16,3 +16,7 @@
     background-color: grey;
     padding: 8px;
 }
+
+.icons > *:hover {
+    background-color:cadetblue;
+}

@@ -4,6 +4,7 @@ import s from './User.module.css';
 const User = (props) => {
 
     const[currentUserPhoto,setCurrentUserPhoto]= useState(props.userPhoto);
+    
 
   return (
     <div className={s[props.userClassName] }>
