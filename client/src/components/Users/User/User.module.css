@@ -1,6 +1,6 @@
 .cameraOn {
     height: 200px;
-    max-width: 100%;
+    width: 100%;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -8,6 +8,7 @@
     background-color: rgb(43, 42, 42);
     border-radius: 10px;
     box-sizing: border-box;
+    
 }
 .cameraOn img {
     height: 100%;
@@ -68,4 +69,8 @@
     color:white;
     top:5%;
     left:90%;
+}
+
+button {
+    border: none;
 }

@@ -17,6 +17,7 @@ import FeedbackIcon from '@mui/icons-material/Feedback';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 import PhoneForwardedIcon from '@mui/icons-material/PhoneForwarded';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
+// import BasicModal from './Modal/Modal';
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -24,9 +25,13 @@ export default function BasicMenu() {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
+
+  const openModal = () => {
     setAnchorEl(null);
   };
+
+
+  const menuItems =[{title:"Дошка для конференцій", icon:<BorderColorOutlinedIcon />}, {title:"Записувати зустріч", icon: <RadioButtonCheckedIcon />}, {title:"Змінити макет", icon:<DashboardIcon />},{title:"Повноекранний режим", icon:<FullscreenIcon />},{title:"Застосувати візуальні ефект", icon:<ClosedCaptionOffIcon />},{title:"Увімкнути субтитри", icon:<AutoAwesomeIcon />},{title:"Використовувати телефон для передачі звуку", icon:<PhoneForwardedIcon /> },{title:"Повідомити про проблему", icon:<FeedbackIcon />},{title:"Повідомити про порушення", icon: <ReportGmailerrorredIcon />},{title:"Вирішення проблем і довідка", icon:<TravelExploreIcon />}, {title:"Налаштування", icon:<SettingsOutlinedIcon />}]
 
   return (
     <div>
@@ -45,84 +50,18 @@ export default function BasicMenu() {
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
-        onClose={handleClose}
+        onClose={openModal}
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}
       >
-        <Tooltip title="Дошка для конференцій" placement="right">
-          <MenuItem onClick={handleClose}>
-            <BorderColorOutlinedIcon /> Дошка для конференцій{' '}
+
+      {menuItems.map(({title,icon})=> 
+        <Tooltip title={title} placement="right">
+          <MenuItem onClick={openModal}>
+            {icon} {title}
           </MenuItem>
-        </Tooltip>
-        <Tooltip title="Записувати зустріч" placement="right">
-          <MenuItem onClick={handleClose}>
-            <RadioButtonCheckedIcon /> Записувати зустріч
-          </MenuItem>
-        </Tooltip>
-        <Divider />
-        <Tooltip title="Змінити макет" placement="right">
-          <MenuItem onClick={handleClose}>
-            <DashboardIcon />
-            Змінити макет
-          </MenuItem>
-        </Tooltip>
-        <Tooltip title="Повноекранний режим" placement="right">
-          <MenuItem onClick={handleClose}>
-            <FullscreenIcon />
-            Повноекранний режим
-          </MenuItem>
-        </Tooltip>
-        <Tooltip title="Застосувати візуальні ефект" placement="right">
-          <MenuItem onClick={handleClose}>
-            {' '}
-            <ClosedCaptionOffIcon />
-            Застосувати візуальні ефекти
-          </MenuItem>
-        </Tooltip>
-        <Tooltip title="Увімкнути субтитри" placement="right">
-          <MenuItem onClick={handleClose}>
-            <AutoAwesomeIcon />
-            Увімкнути субтитри
-          </MenuItem>
-        </Tooltip>
-        <Tooltip
-          title="Використовувати телефон для передачі звуку"
-          placement="right"
-        >
-          <MenuItem onClick={handleClose}>
-            {' '}
-            <PhoneForwardedIcon /> Використовувати телефон для передачі звуку
-          </MenuItem>
-        </Tooltip>
-        <Divider />
-        <Tooltip title="Повідомити про проблему" placement="right">
-          <MenuItem onClick={handleClose}>
-            {' '}
-            <FeedbackIcon />
-            Повідомити про проблему
-          </MenuItem>
-        </Tooltip>
-        <Tooltip title="Повідомити про порушення" placement="right">
-          <MenuItem onClick={handleClose}>
-            {' '}
-            <ReportGmailerrorredIcon />
-            Повідомити про порушення
-          </MenuItem>
-        </Tooltip>
-        <Tooltip title="Вирішення проблем і довідка" placement="right">
-          <MenuItem onClick={handleClose}>
-            <TravelExploreIcon />
-            Вирішення проблем і довідка
-          </MenuItem>
-        </Tooltip>
-        <Tooltip title="Налаштування" placement="right">
-          <MenuItem onClick={handleClose}>
-            {' '}
-            <SettingsOutlinedIcon />
-            Налаштування
-          </MenuItem>
-        </Tooltip>
+        </Tooltip>)}
       </Menu>
     </div>
   );

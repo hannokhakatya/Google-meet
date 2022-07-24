@@ -1,13 +1,7 @@
-/* * {
-  box-sizing: border-box;
-} */
-
 .wrapper {
   background-color: rgb(35, 34, 34);
   height: 100vh; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* display: grid;
-  grid-template-rows: 7fr 1fr;*/
 }
