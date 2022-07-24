@@ -29,11 +29,15 @@ export default function BasicMenu() {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleOpen = () => {
+  const handleCloseMenu = () => {
+    setAnchorEl(null);
+  };
+
+  const handleOpenDialog = () => {
     setTitle(true);
   };
 
-  const handleClose = () => {
+  const handleCloseDialog = () => {
     setOpen(false);
   };
 
@@ -57,7 +61,7 @@ export default function BasicMenu() {
         id="basic-menu"
         anchorEl={anchorEl}
         open={openMenu}
-        // onClose={openModal}
+        onClose={handleCloseMenu}
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}
@@ -65,11 +69,11 @@ export default function BasicMenu() {
 
       {menuItems.map(({title,icon})=> 
         <Tooltip title={title} placement="right">
-          <MenuItem onClick={()=>handleOpen(title)}>
+          <MenuItem onClick={()=>handleOpenDialog(title)}>
             {icon} {title}
           </MenuItem>
         </Tooltip>)}
-        <Dialog onClose={handleClose} open={open}>
+        <Dialog onClose={handleCloseDialog} open={open}>
       <DialogTitle>{title}</DialogTitle>
       </Dialog>
       </Menu>
