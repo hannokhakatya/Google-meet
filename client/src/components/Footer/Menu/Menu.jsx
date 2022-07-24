@@ -5,7 +5,7 @@ import Menu from '@mui/material/Menu';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import Divider from '@mui/material/Divider';
+// import Divider from '@mui/material/Divider';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
@@ -17,20 +17,27 @@ import FeedbackIcon from '@mui/icons-material/Feedback';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 import PhoneForwardedIcon from '@mui/icons-material/PhoneForwarded';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
-// import BasicModal from './Modal/Modal';
+import DialogTitle from '@mui/material/DialogTitle';
+import Dialog from '@mui/material/Dialog';
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
+  const [title, setTitle] = React.useState('');
+  const [open,setOpen] = React.useState(false);
+  const openMenu = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const openModal = () => {
-    setAnchorEl(null);
+  const handleOpen = () => {
+    setTitle(true);
   };
 
+  const handleClose = () => {
+    setOpen(false);
+  };
 
+  console.log(title);
   const menuItems =[{title:"Дошка для конференцій", icon:<BorderColorOutlinedIcon />}, {title:"Записувати зустріч", icon: <RadioButtonCheckedIcon />}, {title:"Змінити макет", icon:<DashboardIcon />},{title:"Повноекранний режим", icon:<FullscreenIcon />},{title:"Застосувати візуальні ефект", icon:<ClosedCaptionOffIcon />},{title:"Увімкнути субтитри", icon:<AutoAwesomeIcon />},{title:"Використовувати телефон для передачі звуку", icon:<PhoneForwardedIcon /> },{title:"Повідомити про проблему", icon:<FeedbackIcon />},{title:"Повідомити про порушення", icon: <ReportGmailerrorredIcon />},{title:"Вирішення проблем і довідка", icon:<TravelExploreIcon />}, {title:"Налаштування", icon:<SettingsOutlinedIcon />}]
 
   return (
@@ -38,9 +45,9 @@ export default function BasicMenu() {
       <Button
         className={s.button}
         id="basic-button"
-        aria-controls={open ? 'basic-menu' : undefined}
+        aria-controls={openMenu ? 'basic-menu' : undefined}
         aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
+        aria-expanded={openMenu ? 'true' : undefined}
         onClick={handleClick}
       >
         {<MoreVertIcon className={s.icon_menu} />}
@@ -49,8 +56,8 @@ export default function BasicMenu() {
         className={s.menu}
         id="basic-menu"
         anchorEl={anchorEl}
-        open={open}
-        onClose={openModal}
+        open={openMenu}
+        // onClose={openModal}
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}
@@ -58,11 +65,15 @@ export default function BasicMenu() {
 
       {menuItems.map(({title,icon})=> 
         <Tooltip title={title} placement="right">
-          <MenuItem onClick={openModal}>
+          <MenuItem onClick={()=>handleOpen(title)}>
             {icon} {title}
           </MenuItem>
         </Tooltip>)}
+        <Dialog onClose={handleClose} open={open}>
+      <DialogTitle>{title}</DialogTitle>
+      </Dialog>
       </Menu>
+
     </div>
   );
 }
