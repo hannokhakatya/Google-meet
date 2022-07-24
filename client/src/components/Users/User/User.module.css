@@ -62,3 +62,10 @@
     border: 4px rgb(35, 133, 246) solid;
     border-radius:15px ;
 }
+
+.microphone {
+    position: absolute;
+    color:white;
+    top:5%;
+    left:90%;
+}

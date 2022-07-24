@@ -8,15 +8,23 @@
 .icons > *:nth-last-child(1) {
     background-color: red;
     border: 1px solid red;
+    width: 30px;
 }
 
 .icons > * {
-    border: 1px solid grey;
+    border: 1px solid rgb(93, 93, 93);
     border-radius: 45%;
-    background-color: grey;
+    background-color: rgb(93, 93, 93);
     padding: 8px;
 }
 
 .icons > *:hover {
     background-color:cadetblue;
+}
+
+.icons > *:nth-last-child(2) {
+    background-color: rgb(93, 93, 93);
+    border: 1px solid rgb(93, 93, 93);
+    width: 25px;
+    height: 25px;
 }
