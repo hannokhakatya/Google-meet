@@ -4,8 +4,8 @@ import Users from './components/Users/Users';
 
 function App(props) {
   return (
-    <div className='wrapper'>
-      <Users users={props.store.users}/>
+    <div className="wrapper">
+      <Users users={props.store.users} />
       <Footer />
     </div>
   );

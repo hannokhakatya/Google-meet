@@ -5,7 +5,6 @@ import Menu from '@mui/material/Menu';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-// import Divider from '@mui/material/Divider';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
@@ -41,8 +40,6 @@ export default function BasicMenu() {
     setOpen(false);
   };
 
- 
-
   const menuItems = [
     { title: 'Дошка для конференцій', icon: <BorderColorOutlinedIcon /> },
     { title: 'Записувати зустріч', icon: <RadioButtonCheckedIcon /> },
@@ -59,7 +56,7 @@ export default function BasicMenu() {
     { title: 'Вирішення проблем і довідка', icon: <TravelExploreIcon /> },
     { title: 'Налаштування', icon: <SettingsOutlinedIcon /> },
   ];
-  console.log(currentTitle)
+  console.log(currentTitle);
   return (
     <div>
       <Button
@@ -83,15 +80,20 @@ export default function BasicMenu() {
         }}
       >
         {menuItems.map(({ title, icon }) => (
-          <Tooltip title={title} placement="right">
-            <MenuItem onClick={() =>  setCurrentTitle(title) && handleOpenDialog(currentTitle) }>
+          <Tooltip title={title} placement="right" key={title}>
+            <MenuItem
+              onClick={() => {
+                setCurrentTitle(title);
+                handleOpenDialog(currentTitle);
+              }}
+            >
               {icon} {title}
-              <Dialog onClose={handleCloseDialog} open={open}>
-                <DialogTitle>{title}</DialogTitle>
-              </Dialog>
             </MenuItem>
           </Tooltip>
         ))}
+        <Dialog onClose={handleCloseDialog} open={open}>
+          <DialogTitle>{currentTitle}</DialogTitle>
+        </Dialog>
       </Menu>
     </div>
   );
