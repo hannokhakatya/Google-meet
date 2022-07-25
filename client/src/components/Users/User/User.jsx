@@ -28,7 +28,7 @@ const User = (props) => {
   return (
     <button onClick={handleClick} className={s[props.userClassName] }>
       <div className={s.name}>{props.name}</div>
-        {props.isCameraOn ? <img src={currentUserPhoto} alt="userPhoto" /> : <div className={s.roundBlock}><img src={currentUserPhoto} alt="userPhoto" />
+        {props.isCameraOn ? <img src={currentUserPhoto || errMsg} alt="userPhoto" /> : <div className={s.roundBlock}><img src={currentUserPhoto} alt="userPhoto" />
         <MicOffIcon className={s.microphone}/></div>}
     </button>
   );

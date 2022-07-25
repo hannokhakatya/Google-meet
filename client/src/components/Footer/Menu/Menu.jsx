@@ -22,8 +22,8 @@ import Dialog from '@mui/material/Dialog';
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [title, setTitle] = React.useState('');
-  const [open,setOpen] = React.useState(false);
+  const [currentTitle, setCurrentTitle] = React.useState('');
+  const [open, setOpen] = React.useState(false);
   const openMenu = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -34,16 +34,32 @@ export default function BasicMenu() {
   };
 
   const handleOpenDialog = () => {
-    setTitle(true);
+    setOpen(true);
   };
 
   const handleCloseDialog = () => {
     setOpen(false);
   };
 
-  console.log(title);
-  const menuItems =[{title:"Дошка для конференцій", icon:<BorderColorOutlinedIcon />}, {title:"Записувати зустріч", icon: <RadioButtonCheckedIcon />}, {title:"Змінити макет", icon:<DashboardIcon />},{title:"Повноекранний режим", icon:<FullscreenIcon />},{title:"Застосувати візуальні ефект", icon:<ClosedCaptionOffIcon />},{title:"Увімкнути субтитри", icon:<AutoAwesomeIcon />},{title:"Використовувати телефон для передачі звуку", icon:<PhoneForwardedIcon /> },{title:"Повідомити про проблему", icon:<FeedbackIcon />},{title:"Повідомити про порушення", icon: <ReportGmailerrorredIcon />},{title:"Вирішення проблем і довідка", icon:<TravelExploreIcon />}, {title:"Налаштування", icon:<SettingsOutlinedIcon />}]
+ 
 
+  const menuItems = [
+    { title: 'Дошка для конференцій', icon: <BorderColorOutlinedIcon /> },
+    { title: 'Записувати зустріч', icon: <RadioButtonCheckedIcon /> },
+    { title: 'Змінити макет', icon: <DashboardIcon /> },
+    { title: 'Повноекранний режим', icon: <FullscreenIcon /> },
+    { title: 'Застосувати візуальні ефект', icon: <ClosedCaptionOffIcon /> },
+    { title: 'Увімкнути субтитри', icon: <AutoAwesomeIcon /> },
+    {
+      title: 'Використовувати телефон для передачі звуку',
+      icon: <PhoneForwardedIcon />,
+    },
+    { title: 'Повідомити про проблему', icon: <FeedbackIcon /> },
+    { title: 'Повідомити про порушення', icon: <ReportGmailerrorredIcon /> },
+    { title: 'Вирішення проблем і довідка', icon: <TravelExploreIcon /> },
+    { title: 'Налаштування', icon: <SettingsOutlinedIcon /> },
+  ];
+  console.log(currentTitle)
   return (
     <div>
       <Button
@@ -66,18 +82,17 @@ export default function BasicMenu() {
           'aria-labelledby': 'basic-button',
         }}
       >
-
-      {menuItems.map(({title,icon})=> 
-        <Tooltip title={title} placement="right">
-          <MenuItem onClick={()=>handleOpenDialog(title)}>
-            {icon} {title}
-          </MenuItem>
-        </Tooltip>)}
-        <Dialog onClose={handleCloseDialog} open={open}>
-      <DialogTitle>{title}</DialogTitle>
-      </Dialog>
+        {menuItems.map(({ title, icon }) => (
+          <Tooltip title={title} placement="right">
+            <MenuItem onClick={() =>  setCurrentTitle(title) && handleOpenDialog(currentTitle) }>
+              {icon} {title}
+              <Dialog onClose={handleCloseDialog} open={open}>
+                <DialogTitle>{title}</DialogTitle>
+              </Dialog>
+            </MenuItem>
+          </Tooltip>
+        ))}
       </Menu>
-
     </div>
   );
 }
