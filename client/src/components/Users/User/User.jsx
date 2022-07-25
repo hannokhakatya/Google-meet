@@ -17,7 +17,7 @@ const User = (props) => {
         setCurrentUserPhoto(result);
       }
     } catch (error) {
-      setErrMsg('Ohh,no');
+      setErrMsg('Request failed');
     }
   };
 
