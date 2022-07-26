@@ -2,7 +2,6 @@ import User from './User/User';
 import s from './Users.module.css';
 
 const Users = (props) => {
-  // const users = useUsers();
   return (
     <div className={s.users}>
       {props.users.map((user) => (

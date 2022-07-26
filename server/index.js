@@ -10,6 +10,9 @@ app.listen(port, () => {
   console.log('Server running on port 3001');
 });
 
+app.get('/api', (req, res) => {
+    res.status(200).send('hi');
+  });
 
 const folderPath = path.join(__dirname, 'random-image');
 const images = fs.readdirSync(folderPath);
@@ -25,11 +28,7 @@ app.get('/api/randomimage', (req, res) => {
     'random-image',
     images[randomImageIndex]
   );
-  const randomImage = fs.readFileSync(filePath).toString('base64');
-  const srcImage = `data:image/png;base64,${randomImage}`
+  const randomImage = fs.readFileSync(filePath,'base64');
+  const srcImage = `data:image/jpeg;base64,${randomImage}`
   res.send({ srcImage });
-});
-
-app.get('/api', (req, res) => {
-  res.status(200).send('Welcome to our restful API');
 });

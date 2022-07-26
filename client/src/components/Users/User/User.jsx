@@ -11,12 +11,10 @@ const User = (props) => {
 
   const handleClick = async (e) => {
     try {
-      const response = await axios.get(RANDOM_IMAGE_URL, { currentUserPhoto });
-      console.log(response.data);
-      if (response.data.successful === true) {
+      const response = await axios.get(RANDOM_IMAGE_URL);
         const result = response.data.srcImage;
         setCurrentUserPhoto(result);
-      }
+        console.log(response.data)
     } catch (error) {
       setErrMsg('Request failed');
     }
