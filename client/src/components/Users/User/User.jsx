@@ -3,7 +3,7 @@ import s from './User.module.css';
 import MicOffIcon from '@mui/icons-material/MicOff';
 import axios from 'axios';
 
-const RANDOM_IMAGE_URL = '/randomimage';
+const RANDOM_IMAGE_URL = '/api/randomimage';
 
 const User = (props) => {
   const [currentUserPhoto, setCurrentUserPhoto] = useState(props.userPhoto);
@@ -12,8 +12,9 @@ const User = (props) => {
   const handleClick = async (e) => {
     try {
       const response = await axios.get(RANDOM_IMAGE_URL, { currentUserPhoto });
+      console.log(response.data);
       if (response.data.successful === true) {
-        const result = response.data.result;
+        const result = response.data.srcImage;
         setCurrentUserPhoto(result);
       }
     } catch (error) {

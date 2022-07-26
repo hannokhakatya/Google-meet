@@ -1,13 +1,35 @@
-const express =require('express');
+const express = require('express');
+const fs = require('fs');
+const path = require('path');
 
 const app = express();
 
-const port = 4000;
+const port = 3001;
 
-app.listen(port,()=> {
-    console.log('Server running on port 4000')
-})
+app.listen(port, () => {
+  console.log('Server running on port 3001');
+});
 
-app.get('/', (req,res)=> {
-    res.send('Google-meet');
-})
+
+const folderPath = path.join(__dirname, 'random-image');
+const images = fs.readdirSync(folderPath);
+
+function getRandomIndex (min,max) {
+    return Math.floor(min + Math.random() * (max + 1 - min));
+}
+
+app.get('/api/randomimage', (req, res) => {
+  const randomImageIndex = getRandomIndex(0, images.length);
+  const filePath = path.join(
+    __dirname,
+    'random-image',
+    images[randomImageIndex]
+  );
+  const randomImage = fs.readFileSync(filePath).toString('base64');
+  const srcImage = `data:image/png;base64,${randomImage}`
+  res.send({ srcImage });
+});
+
+app.get('/api', (req, res) => {
+  res.status(200).send('Welcome to our restful API');
+});
