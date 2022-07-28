@@ -21,6 +21,7 @@ const User = (props) => {
        
     } catch (error) {
       setErrMsg('Request failed');
+      console.log(errMsg);
     }
   };
 
