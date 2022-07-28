@@ -28,7 +28,7 @@ const User = (props) => {
     <button onClick={handleClick} className={s[props.userClassName]}>
       <div className={s.name}>{props.name}</div>
       {isCameraOn ? (
-        <img src={currentUserPhoto || errMsg} alt="userPhoto" />
+        <img src={currentUserPhoto } alt="userPhoto" />
       ) : (
         <div className={s.roundBlock}>
           <img src={currentUserPhoto} alt="userPhoto" />
