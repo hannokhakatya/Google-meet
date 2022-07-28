@@ -8,7 +8,6 @@ const RANDOM_IMAGE_URL = '/api/randomimage';
 const User = (props) => {
   const [currentUserPhoto, setCurrentUserPhoto] = useState(props.userPhoto);
   const [isCameraOn, setIsCameraOn] = useState(props.isCameraOn);
-  const [errMsg, setErrMsg] = useState('');
 
   const handleClick = async (e) => {
     try {
@@ -20,8 +19,7 @@ const User = (props) => {
       }
        
     } catch (error) {
-      setErrMsg('Request failed');
-      console.log(errMsg);
+      alert(error);
     }
   };
 
