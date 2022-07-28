@@ -49,7 +49,7 @@ export default function BasicMenu() {
     setAnchorEl(null);
   };
 
-  const handleOpenDialog = (title) => {
+  const handleOpenDialog = () => {
     setOpen(true);
   };
 
@@ -84,7 +84,7 @@ export default function BasicMenu() {
             <MenuItem
               onClick={() => {
                 setCurrentTitle(title);
-                handleOpenDialog(currentTitle);
+                handleOpenDialog();
               }}
             >
               {icon} {title}
