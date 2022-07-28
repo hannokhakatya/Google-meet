@@ -19,6 +19,23 @@ import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 
+const menuItems = [
+  { title: 'Дошка для конференцій', icon: <BorderColorOutlinedIcon /> },
+  { title: 'Записувати зустріч', icon: <RadioButtonCheckedIcon /> },
+  { title: 'Змінити макет', icon: <DashboardIcon /> },
+  { title: 'Повноекранний режим', icon: <FullscreenIcon /> },
+  { title: 'Застосувати візуальні ефект', icon: <ClosedCaptionOffIcon /> },
+  { title: 'Увімкнути субтитри', icon: <AutoAwesomeIcon /> },
+  {
+    title: 'Використовувати телефон для передачі звуку',
+    icon: <PhoneForwardedIcon />,
+  },
+  { title: 'Повідомити про проблему', icon: <FeedbackIcon /> },
+  { title: 'Повідомити про порушення', icon: <ReportGmailerrorredIcon /> },
+  { title: 'Вирішення проблем і довідка', icon: <TravelExploreIcon /> },
+  { title: 'Налаштування', icon: <SettingsOutlinedIcon /> },
+];
+
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [currentTitle, setCurrentTitle] = React.useState('');
@@ -40,23 +57,6 @@ export default function BasicMenu() {
     setOpen(false);
   };
 
-  const menuItems = [
-    { title: 'Дошка для конференцій', icon: <BorderColorOutlinedIcon /> },
-    { title: 'Записувати зустріч', icon: <RadioButtonCheckedIcon /> },
-    { title: 'Змінити макет', icon: <DashboardIcon /> },
-    { title: 'Повноекранний режим', icon: <FullscreenIcon /> },
-    { title: 'Застосувати візуальні ефект', icon: <ClosedCaptionOffIcon /> },
-    { title: 'Увімкнути субтитри', icon: <AutoAwesomeIcon /> },
-    {
-      title: 'Використовувати телефон для передачі звуку',
-      icon: <PhoneForwardedIcon />,
-    },
-    { title: 'Повідомити про проблему', icon: <FeedbackIcon /> },
-    { title: 'Повідомити про порушення', icon: <ReportGmailerrorredIcon /> },
-    { title: 'Вирішення проблем і довідка', icon: <TravelExploreIcon /> },
-    { title: 'Налаштування', icon: <SettingsOutlinedIcon /> },
-  ];
-  console.log(currentTitle);
   return (
     <div>
       <Button
