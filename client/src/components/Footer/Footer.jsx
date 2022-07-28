@@ -1,5 +1,5 @@
 import moment from 'moment';
-import SideIcons from './AsideIcons/SideIcons';
+import SideIcons from './SideIcons/SideIcons';
 import s from './Footer.module.css';
 import MiddleIcons from './MiddleIcons/MiddleIcons';
 
