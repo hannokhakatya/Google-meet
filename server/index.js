@@ -3,16 +3,11 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-
 const port = 3001;
 
 app.listen(port, () => {
-  console.log('Server running on port 3001');
+  console.log(`Server running on port ${port}`);
 });
-
-app.get('/api', (req, res) => {
-    res.status(200).send('hi');
-  });
 
 const folderPath = path.join(__dirname, 'random-image');
 const images = fs.readdirSync(folderPath);

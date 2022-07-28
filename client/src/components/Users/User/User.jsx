@@ -7,14 +7,18 @@ const RANDOM_IMAGE_URL = '/api/randomimage';
 
 const User = (props) => {
   const [currentUserPhoto, setCurrentUserPhoto] = useState(props.userPhoto);
+  const [isCameraOn, setIsCameraOn] = useState(props.isCameraOn);
   const [errMsg, setErrMsg] = useState('');
 
   const handleClick = async (e) => {
     try {
       const response = await axios.get(RANDOM_IMAGE_URL);
-        const result = response.data.srcImage;
-        setCurrentUserPhoto(result);
-        console.log(response.data)
+      const result = response.data.srcImage;
+      setCurrentUserPhoto(result);
+      if (!isCameraOn) {
+        setIsCameraOn(true);
+      }
+       
     } catch (error) {
       setErrMsg('Request failed');
     }
@@ -23,7 +27,7 @@ const User = (props) => {
   return (
     <button onClick={handleClick} className={s[props.userClassName]}>
       <div className={s.name}>{props.name}</div>
-      {props.isCameraOn ? (
+      {isCameraOn ? (
         <img src={currentUserPhoto || errMsg} alt="userPhoto" />
       ) : (
         <div className={s.roundBlock}>
