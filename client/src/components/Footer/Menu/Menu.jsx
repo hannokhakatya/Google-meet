@@ -49,7 +49,7 @@ export default function BasicMenu() {
     setAnchorEl(null);
   };
 
-  const handleOpenDialog = () => {
+  const handleOpenDialog = (title) => {
     setOpen(true);
   };
 
